@@ -1,0 +1,9 @@
+Whats better than print statement
+
+Trace a variable
+	1	Right click on breakpoint
+	2 	Uncheck "Suspend"
+	3 	Check "Evaluate and log:"
+	4 	Type the variable you want to log (e.g. "delta_time")
+		This will be logged to the console, not printed
+		* Won't be commited to the repo!
