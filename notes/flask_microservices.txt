@@ -1,0 +1,94 @@
+Miguel Grinberg (rackspace) - Flask microservices
+
+services are very simple - great for teams with varying degress of experience, new people on the team - loosley coupled
+performance is worse than monolitic (ms) - websocket, once established doesn't go away, faster
+breaking up a monolith - grandfather monolith behine load balance, new features in microservices/ refactor pieces of application over time. Run the monolith app, then register with the service register
+unit testing on the monolith is crucial for refactoring, basically copying and pasting routes
+load balancer - autoscaling, A/B testing, green/blue deployments
+service registry - a db - distributed data store that keeps track of running services (etcd (has a 
+python client), consul, zookeeper, eureka) - crucial that this is resilient
+logging - crazy if each instance of service has own log stream - ELK stack (elasticsearch(stores logs) + logstash(injects into E) + kibana(web app to search)) (there is ELK as a service), logspout (for docker)
+
+containers - don't have to manage network ports (docker manages where the default port 5000 maps to very convient)
+typically one process per container
+
+application state - stateful is hard to manage
+stateless services are easily scalable, replaceable, and disposable
+application-level services should ideally be stateless, and shoulbe use stateful services as storage
+sticky IP - same client goes to same instance of service - if API is not stateless
+
+good idea to implement retries for all network calls, exponential backooff strategy works nicely
+
+
+BAD NEWS
+painful to make big changes, easier with monolith
+changes to services must be backwards compatible - distributed system can't be updated atomically without downtime
+phased micro-upgrades can help with column renames/deletes if it breaks any code that may still be deployes (deprecate the column, every service moves to the new column, then move the data) 
+new column must be nullable, old services won't be able to handle this
+complex services that span several services must be orchestrated so they can be applied as microdeployments - may start new feature, keep working in old way, until you're ready to move
+
+LIFECYCLE
+on startup, register with service registry, or be discovered by it
+the service sends keep-alive signals, or responds to peridic health checks
+
+
+****************
+flack - chat app
+****************
+
+first built a monolitic version
+running multiple instances of a flack service behind a load balancer using round robin
+celery is used to talk to the database asynchronously and push notifications back through a message queue
+
+microflack
+celery is now gone, complication in microservices when changing code, requires microservices to stop
+client ui - serces the app to the browser
+each service that uses a database has there own database
+services run in docker containers - 4 expose their functions with HTTP/REST, the other through web sockets
+service registry - key component to microservices - keeps track of what services are running, where they are, and how many instances there are - this feeds into the load balancer, which changes dynamically based on this
+
+HAProxy load balancer (nginx the other choice (os version doesn't have service monitoring), traefik is also popular with microservices)
+shows each instance for each service
+
+mfrun messages - (bash script in bin) creates a new instance of a service
+if you run docker rm on an instance, HAProxy will blacklist it, the app still stays up
+
+mfupgrade roll messages - rolling upgrade of service, kills old versions, starts new ones, never stops (kubernetes, aws do this too)
+
+microflack admin is the main repo
+a bunch of bash commands
+
+microflack common is a repo that has all common functionality across all services
+eg authentication, testing helpers, containers, etcd, etc
+repo has a mkwheel script to create a wheel, store it in a wheel directory
+pip install will look here if it can't find it on pypi
+
+pip install <wheel> --findlinks <directory>
+
+
+Service Boundaries
+UI 			/ /static/..
+Users		/api/users
+tokens
+messages
+sockti.IO
+
+
+Start by creating load load balancer and service registry
+
+UI service repo
+First service will be the easiest, the UI, has GET methods
+app.py contains a endpoint that returns the html file, everything else is static files
+
+Config class
+Dev, Test, Prod are all inherit from the base config file
+pass instance of class as parameter project
+
+.env file
+contains env files, should not be added to source control as it contains secrets
+
+tox stays on top of unit testing
+configure different things to run - create a matrix for different version (eg py 3.4, 3.5, 3.6)to use
+
+
+
