@@ -1,0 +1,36 @@
+Lectures to Watch
+
+Intro to Containers and Kubernetes
+Python Packaging - current state and overview
+Python Profiling with Intel VTune Amplifier
+
+Faster Python Programs - Measures, don't guess
+Best Practices for Debugging
+Debugging in Python 3.6
+Effortless logging
+GPU Accleration
+
+Python Microservices M Grinberg
+Write More Decorators and Fewer Classes
+Running Python code in parallel and asynchronously
+
+Debugging for the Masses, Visually
+Discover Descriptors
+
+Optimising Python with Cython
+Mary had a little lambda
+xarray and dask for climate change
+how to use pandas the wrong way
+how cpython parser works
+big data analytics
+
+asynchronous programming with python
+pycharm tips and tricks
+the joy of pypy jit
+
+hands on approach to tuning python apps for performance
+type annotations in python 3
+inside airbnb geographic visualisation
+
+Writing Beautiful Code
+Improve your developer toolset

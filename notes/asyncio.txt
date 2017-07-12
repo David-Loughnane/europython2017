@@ -1,0 +1,24 @@
+https://github.com/fpierfed/europython2017
+
+synchronous/blocking/normal functions do not return until they are done, implemented as co-routines
+asynchronous/non-blocking functions return immediatley (usually), yielding control back to the caller
+
+Benefit - IO (Web Servers), but in general where CPU is not doing much for good portion of runtime
+
+Single threaded code
+You get concurrency - several pieces of code alive at same time
+You don't get parallelism
+But you don't need locks if you're carfule
+If you go async, you need to go async all the way
+
+http://www.dabeaz.com/coroutines/
+coroutines are similar to generators with a few differences
+	generators are data producers, generating data on the fly
+	coroutines are data consumers, they consume values that are sent to it
+
+Callback is a function that passed to a function and then called when function is done
+Futures are placehoders for result that will be generated eventually by given code, you can query them - raise Exception/return result
+Who does it give control back to - usually scheduler / event loop - software that takes care of starting co-routines, taking control back, waking up functions periodically - generally only synchronous part of asynchronous code
+
+async frameworks can't guarntee coroutine will be reawoken at an exact time, sleep for at least x seconds
+

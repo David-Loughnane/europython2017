@@ -62,7 +62,17 @@ else:
 https://github.com/asvetlov/optimization-rimini-2017/blob/gh-pages/prj/tests/test_prj_pytest.py
 Pytest fixtures provide fixed baseline for which tests can reliably and repeatlyedly execute
 We can use fixtures to pass cython and python version of test to run 2 tests for the price of 1
+Fixtures can be thought of as a set of resources that need to be set up before a test start, and cleaned up after. Test functions, methds, classes, name which fixutres they need
+A fixture is a modular resource, possibley set up once for many tests, or for each test
+
 
 good practice to use pregenerated C files, then cython doesn't need to be installed on client machine
 we still need gcc on client to compile C to .so files
+
+cython has support for asyncio
+but most speedup comes from asynchronous code that works with data
+
+can't use pdb, ipdb debugger
+cygdb
+	cy step will step through each cython operation, rather than stepping through C code
 

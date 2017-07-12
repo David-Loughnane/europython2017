@@ -10,6 +10,7 @@ def myrange(n):
     # this code won't be executed until we first call next
     # not on instantiation of function
     # eg >> x = myrange(-1). won't raise exception
+    # >> next(x), however will
     assert n >= 0
 
     i = 0
