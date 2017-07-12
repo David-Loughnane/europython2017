@@ -1,0 +1,31 @@
+DOCKER
+each package has it's own way of tagging
+if you omit it defaults to latest
+you can add a volume that can persist your work on docker
+
+KUBERNETES - declarative - tell the system the state you desire, it figures it out
+only works on linux for now? vm only?
+
+kubernetes secrets - app can query the system for passwords (aws kms - key mgmt service)
+
+automatic bin packing - maximize number of containers in space
+automatic rollouts and rollbacks - handles management of traffic to new container
+fault tolerant - cluster can last (hours) without master, just can't redistrute workload
+
+> kubectl get nodes
+> kubectl get pods
+
+pod - minimal unit of deployment, containers run in these
+kube proxy - handles comms in and out of node
+labels - key/val pairs associated with objects, have semantic value in kubernetes
+annotations - similar but have no meaning in kubernetes
+services - a group of pods running on the cluster - if you want things to interact with one another you must expose them via a service
+replicaSets - earlier version of kubernetes on how to handle deployments
+deployments - best practice now for handling deployments
+
+minikube for local kubernetes development and testing
+creates a local deployment/cluster - treat like an actual cluster
+
+we need to push our docker images to dockerhub in order for kubernetes to have access to it
+
+be careful when scaling down - kubernetes will kill pods as needed 
