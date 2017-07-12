@@ -1,0 +1,68 @@
+Code repo
+https://github.com/asvetlov/optimization-rimini-2017
+
+
+pyximport is part of Cython, and it's used in place of import in a way.
+
+If your module doesn’t require any extra C libraries or a special build setup, then you can use the pyximport module to load .pyx files directly on import, without having to write a setup.py file. It can be used like this:
+
+>>> import pyximport; pyximport.install()
+>>> import helloworld
+Hello World
+
+
+1	Detect bottleneck
+2	Make benchmark
+3	Optimize
+
+Pyx_XDECREF - decrease the reference count for this object
+
+
+There are 3 types of functoon
+
+
+# can be called from python code
+def f(a):
+	g(a)
+
+
+# no translation from python objects into C objects
+# operates with C API
+cdef g(a):
+	pass
+
+
+# Doesn't like this approach
+# C and Python function
+# if its called from C it works like cdef
+# if its called from python it executes arguemnt translations
+cpdef h(a):
+	pass
+
+
+# 2 different python APIs
+# Abstract and concrete objects layer python API
+# abstract object functions interact with Python objects regardless of their type
+# conceret object functions are specific to ccertain Python object types. 
+
+# cython implicitly adds object type
+# it is recommended to explictly declare type object
+
+
+# with nogil: you can't call any python function
+
+# good to keep cython code with regular python code
+# cython code doesn't have support for coverage
+
+if _append is not None:
+	append = _append
+else:
+	append - _pyappend
+
+https://github.com/asvetlov/optimization-rimini-2017/blob/gh-pages/prj/tests/test_prj_pytest.py
+Pytest fixtures provide fixed baseline for which tests can reliably and repeatlyedly execute
+We can use fixtures to pass cython and python version of test to run 2 tests for the price of 1
+
+good practice to use pregenerated C files, then cython doesn't need to be installed on client machine
+we still need gcc on client to compile C to .so files
+
