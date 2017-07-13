@@ -1,0 +1,8 @@
+Coverage
+I want to know the % of code my tests cover
+
+py.test -svv cov=tdd --cov-report=term-missing
+
+fixture - a bunch of data that is the same all over the tests, don't want to repeat, pass as parameter to test
+
+within the repo there are test commits, then code commits that pass to tests (on master branch)
