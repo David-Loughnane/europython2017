@@ -1,0 +1,23 @@
+non-uniform memory architecture and cache
+computer memory design used in multiprocessing, where the memory access time depends on the memory location relative to the processor
+a processor can access its own local memory faster than non-local memory (memory local to another porcessor or memory shared between processors)
+
+
+message passing
+	mpi4py, dask
+general parallelism
+	multiporcessing, dask
+multi-format parallelism
+	cython, numba
+	tbb, openMP are backends/runtimes
+	numexpr, numpy, etc.
+
+
+
+distributed computing landscape
+mpi4py (message passing interface), pyspark, dask
+
+dask = framework that uses distributed futures to construct task graphs and execute via a scheduler
+specalised for computational workloads (numerical python parallelism - numpy ecosystem)
+scale up aand down quickly
+penalties to pay - maybe ok with single run high workload 
