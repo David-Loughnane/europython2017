@@ -1,0 +1,10 @@
+voluptuous
+
+engarde - decorators specific to dataframes 
+quite young, some bugs stopped
+
+tdda - used for constarint discovery
+
+hypothesis - based on property based testing
+aka the code review jerk
+finds edge cases 
