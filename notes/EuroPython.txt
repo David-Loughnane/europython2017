@@ -1,0 +1,45 @@
+##############################
+# High Performance Python (Profiling, Compiling, Vectorisation, Conncurrent, and Parallel)
+# Testing (TDD, Data Unit Testing), and Debugging
+# Containers and Microservices
+##############################
+
+
+A Thorough Introduction to Containers and Kubernetes
+Faster Python Programs - Measure, Don't Guess
+
+Building Microservices with Python and Flask
+	https://github.com/miguelgrinberg?utf8=✓&tab=repositories&q=microflack&type=&language=
+Debugging for the Masses... Visually
+	http://www.pauleveritt.org/visual_debugging_games/index.html
+	https://www.jetbrains.com/help/pycharm/meet-pycharm.html
+
+Optimising with Cython
+	https://github.com/asvetlov/optimization-rimini-2017
+Asynchronous Programming with Python
+	https://github.com/fpierfed/europython2017
+
+A Hands on Approach to Tuning Python Applications for Performance
+	https://github.com/triskadecaepyon/ep2017_tutorial_tune_performance
+	https://software.intel.com/en-us/articles/docker-images-for-intel-python
+TDD in Python with pytest and mock
+	https://github.com/lgiordani/ep2017_tdd
+
+Data Unit Testing
+	https://github.com/machinalis/featureforge/blob/develop/LICENSE
+	https://www.youtube.com/results?search_query=ned+batchelder
+	http://blog.kjamistan.com/practical-data-cleaning-with-python-resources/
+PyPy meets Python 3 and NumPy
+Large-scale data extraction, structuring and matching using Python and Spark
+Making Awesome PyPI packages
+
+Pandas Sprints
+	http://pandas.pydata.org/pandas-docs/stable/contributing.html#building-the-documentation
+
+
+#######
+# Other
+#######
+
+AirBnB Geo Viz
+	https://github.com/Guillem-db/Inside-Airbnb-EP17/blob/master/1%20-%20Bokeh%20and%20Holoviews.ipynb
